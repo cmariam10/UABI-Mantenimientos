@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -1368,8 +1369,6 @@
     </section>
 
     <section id="tab-avances" class="tabView">
-      
-
       <div class="frontSummary">
         <div class="summaryMetric">
           <div class="summaryMetricLabel">Frentes visibles</div>
@@ -1606,18 +1605,16 @@
   }
 
   function formatDateTime(value) {
-  const dt = value instanceof Date ? value : parseDateFlexible(value);
-  if (!dt) return String(value || "—");
+    const dt = value instanceof Date ? value : parseDateFlexible(value);
+    if (!dt) return String(value || "—");
 
-  const d = dt.getDate().toString().padStart(2, '0');
-  const m = (dt.getMonth() + 1).toString().padStart(2, '0');
-  const y = dt.getFullYear().toString().slice(-2);
+    const d = String(dt.getDate()).padStart(2, "0");
+    const m = String(dt.getMonth() + 1).padStart(2, "0");
+    const y = String(dt.getFullYear()).slice(-2);
+    const h = String(dt.getHours()).padStart(2, "0");
+    const min = String(dt.getMinutes()).padStart(2, "0");
 
-  const h = dt.getHours().toString().padStart(2, '0');
-  const min = dt.getMinutes().toString().padStart(2, '0');
-
-  return `${d}/${m}/${y} ${h}:${min}`;
-}).format(dt);
+    return `${d}/${m}/${y} ${h}:${min}`;
   }
 
   function loadFotosFrentes() {
@@ -2966,8 +2963,7 @@
         <div class="stageHead">
           <div>
             <div class="stageTitle">${STAGE_LABELS[stage]}</div>
-            
-          </div>
+            </div>
           <span class="chip">${photos.length} foto${photos.length === 1 ? '' : 's'}</span>
         </div>
 
