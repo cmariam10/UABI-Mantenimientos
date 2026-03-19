@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -940,22 +940,32 @@
     }
 
     .tabBtn{
-      border:1px solid rgba(255,255,255,0.28);
-      background:rgba(255,255,255,0.16);
-      color:#fff;
-      border-radius:999px;
-      padding:10px 16px;
-      font-weight:800;
-      cursor:pointer;
-      backdrop-filter: blur(4px);
-    }
+  border:2px solid rgba(255,255,255,0.6);
+  background:rgba(255,255,255,0.25);
+  color:#ffffff;
+  border-radius:999px;
+  padding:12px 20px;
+  font-weight:900;
+  cursor:pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+  font-size:14px;
+  letter-spacing:0.02em;
+}
 
-    .tabBtn.active{
-      background:#fff;
-      color:var(--brand-blue);
-      border-color:#fff;
-      box-shadow:0 10px 20px rgba(17,24,39,0.14);
-    }
+.tabBtn:hover{
+  background:rgba(255,255,255,0.4);
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+
+.tabBtn.active{
+  background:#ffffff;
+  color:var(--brand-blue);
+  border:2px solid #ffffff;
+  box-shadow:0 10px 24px rgba(0,0,0,0.25);
+  transform:scale(1.05);
+}
 
     .tabView{display:none;}
     .tabView.active{display:block;}
@@ -1188,10 +1198,9 @@
   <div class="wrap">
     <div class="top">
       <div class="brand">
-        <div class="logo">MDE</div>
         <div>
-          <h1>Tablero de Control — Obras / Contratos</h1>
-          <div class="sub">Visualización desde Google Sheets</div>
+          <h1>Seguimiento Obras / Contratos Mantenimientos</h1>
+          <div class="sub">Secretaría de Suministros y Servicios - UABI</div>
         </div>
       </div>
       <div class="toolbar">
