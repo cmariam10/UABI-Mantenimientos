@@ -931,6 +931,255 @@
       .summaryGrid{ grid-template-columns:1fr; }
     }
 
+
+    .tabsBar{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .tabBtn{
+      border:1px solid rgba(255,255,255,0.28);
+      background:rgba(255,255,255,0.16);
+      color:#fff;
+      border-radius:999px;
+      padding:10px 16px;
+      font-weight:800;
+      cursor:pointer;
+      backdrop-filter: blur(4px);
+    }
+
+    .tabBtn.active{
+      background:#fff;
+      color:var(--brand-blue);
+      border-color:#fff;
+      box-shadow:0 10px 20px rgba(17,24,39,0.14);
+    }
+
+    .tabView{display:none;}
+    .tabView.active{display:block;}
+
+    .sectionIntro{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .frontSummary{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:14px;
+      margin-bottom:14px;
+    }
+
+    @media (max-width: 980px){
+      .frontSummary{grid-template-columns:repeat(2, minmax(0,1fr));}
+    }
+    @media (max-width: 640px){
+      .frontSummary{grid-template-columns:1fr;}
+    }
+
+    .frontSummary .summaryMetric{
+      padding:16px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+    }
+
+    .summaryMetricLabel{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+    }
+
+    .summaryMetricValue{
+      margin-top:8px;
+      font-size:28px;
+      font-weight:900;
+    }
+
+    .frontsList{
+      display:grid;
+      gap:16px;
+      margin-top:14px;
+    }
+
+    .frontCard{
+      border:1px solid var(--stroke);
+      border-radius:24px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .frontCardHead{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      align-items:flex-start;
+      padding:18px 20px;
+      border-bottom:1px solid rgba(17,24,39,0.08);
+      background:linear-gradient(180deg,#FFFFFF,#FAFCFD);
+    }
+
+    .frontCardTitle{
+      font-size:18px;
+      font-weight:900;
+    }
+
+    .frontCardMeta{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .frontCardBadges{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .frontStages{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:16px;
+      padding:18px;
+      background:#F9FBFC;
+    }
+
+    @media (max-width: 980px){
+      .frontStages{grid-template-columns:1fr;}
+    }
+
+    .stageCard{
+      border:1px solid var(--stroke);
+      border-radius:20px;
+      background:#fff;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      min-height:260px;
+      gap:12px;
+    }
+
+    .stageHead{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+
+    .stageTitle{
+      font-size:14px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+    }
+
+    .stageHint{
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+
+    .uploadLabel{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:40px;
+      border-radius:14px;
+      padding:10px 14px;
+      cursor:pointer;
+      border:1px dashed rgba(43,167,181,0.45);
+      background:#F4FBFC;
+      color:#176C75;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .uploadInput{display:none;}
+
+    .galleryEmpty{
+      color:var(--muted);
+      font-size:13px;
+      padding:16px;
+      border:1px dashed var(--stroke);
+      border-radius:14px;
+      background:#FBFCFD;
+      text-align:center;
+    }
+
+    .galleryList{
+      display:grid;
+      gap:12px;
+    }
+
+    .galleryItem{
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .galleryImage{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+      background:#F3F4F6;
+    }
+
+    .galleryInfo{
+      padding:10px 12px 12px;
+      display:grid;
+      gap:8px;
+    }
+
+    .galleryDate{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .galleryName{
+      font-size:13px;
+      color:var(--text);
+      word-break:break-word;
+    }
+
+    .galleryActions{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .tinyBtn{
+      border:none;
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .tinyBtn.secondary{
+      background:#EEF8FA;
+      color:#176C75;
+    }
+
+    .tinyBtn.danger{
+      background:#FFF1F2;
+      color:#BE123C;
+    }
+
   </style>
 </head>
 <body>
@@ -1007,6 +1256,12 @@
 
 <main>
   <div class="wrap">
+    <div class="tabsBar">
+      <button class="tabBtn active" type="button" data-tab="dashboard">Tablero general</button>
+      <button class="tabBtn" type="button" data-tab="avances">Avances por frente de trabajo</button>
+    </div>
+
+    <section id="tab-dashboard" class="tabView active">
     <section class="kpis">
       <div class="card kpi">
         <div class="label">Total contratos</div>
@@ -1098,6 +1353,34 @@
         <tbody id="tbody"></tbody>
       </table>
     </section>
+    </section>
+
+    <section id="tab-avances" class="tabView">
+      <div class="sectionIntro">
+        Esta pestaña organiza los puntos de obra por frente de trabajo. Cada punto muestra tres rectángulos: <strong>antes</strong>, <strong>durante</strong> y <strong>después</strong>. Las fotos se ordenan automáticamente de la más nueva a la más antigua con la fecha y hora de carga.
+      </div>
+
+      <div class="frontSummary">
+        <div class="summaryMetric">
+          <div class="summaryMetricLabel">Frentes visibles</div>
+          <div id="frontMetricTotal" class="summaryMetricValue">0</div>
+        </div>
+        <div class="summaryMetric">
+          <div class="summaryMetricLabel">Fotos antes</div>
+          <div id="frontMetricAntes" class="summaryMetricValue">0</div>
+        </div>
+        <div class="summaryMetric">
+          <div class="summaryMetricLabel">Fotos durante</div>
+          <div id="frontMetricDurante" class="summaryMetricValue">0</div>
+        </div>
+        <div class="summaryMetric">
+          <div class="summaryMetricLabel">Fotos después</div>
+          <div id="frontMetricDespues" class="summaryMetricValue">0</div>
+        </div>
+      </div>
+
+      <div id="frontsList" class="frontsList"></div>
+    </section>
   </div>
 </main>
 
@@ -1149,6 +1432,9 @@
   let markersHistorial = null;
 
   const DEFAULT_ANO = "2025";
+  const FOTOS_STORAGE_KEY = "tablero_frentes_fotos_v1";
+  const STAGE_LABELS = { antes: "Antes", durante: "Durante", despues: "Después" };
+  let fotosFrentes = loadFotosFrentes();
 
   function el(id){
     return document.getElementById(id);
@@ -1316,6 +1602,36 @@
       dateStyle:"medium",
       timeStyle:"short"
     }).format(dt);
+  }
+
+  function loadFotosFrentes() {
+    try {
+      const raw = localStorage.getItem(FOTOS_STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : {};
+      return parsed && typeof parsed === "object" ? parsed : {};
+    } catch (_) {
+      return {};
+    }
+  }
+
+  function saveFotosFrentes() {
+    localStorage.setItem(FOTOS_STORAGE_KEY, JSON.stringify(fotosFrentes));
+  }
+
+  function buildFrenteKey(contrato, nombrePunto) {
+    return `${extractContractNumber(contrato) || String(contrato || "").trim()}__${String(nombrePunto || "sin-punto").trim().toLowerCase()}`;
+  }
+
+  function getStagePhotos(contrato, nombrePunto, stage) {
+    const key = buildFrenteKey(contrato, nombrePunto);
+    const stageData = fotosFrentes?.[key]?.[stage];
+    return Array.isArray(stageData) ? [...stageData].sort((a,b) => (b.uploadedAt || 0) - (a.uploadedAt || 0)) : [];
+  }
+
+  function ensureFrontBucket(contrato, nombrePunto) {
+    const key = buildFrenteKey(contrato, nombrePunto);
+    if (!fotosFrentes[key]) fotosFrentes[key] = { antes: [], durante: [], despues: [] };
+    return fotosFrentes[key];
   }
 
   function normalizeAttachmentLinks(value) {
@@ -2150,6 +2466,7 @@
     renderTable(rows);
     buildOrUpdateCharts(rows);
     actualizarMapaGeneral(rows);
+    renderFronts(rows);
   }
 
   function initMultiSelect(selId){
@@ -2555,6 +2872,176 @@
     window.open(FORMULARIO_ACTUALIZACION_URL, "_blank", "noopener,noreferrer");
   }
 
+  function switchTab(tabName){
+    document.querySelectorAll('.tabBtn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    document.querySelectorAll('.tabView').forEach(view => {
+      view.classList.toggle('active', view.id === `tab-${tabName}`);
+    });
+    if (tabName === 'dashboard' && mapaGeneral) {
+      setTimeout(() => mapaGeneral.invalidateSize(), 80);
+    }
+  }
+
+  function buildFronts(rows) {
+    const byContrato = new Map(rows.map(r => [cleanText(r.contrato), r]));
+    const relevantPoints = pointsData.filter(p => byContrato.has(cleanText(p.contrato)));
+
+    return relevantPoints.map(p => {
+      const contratoData = byContrato.get(cleanText(p.contrato));
+      const nombrePunto = p.nombre_punto || p.direccion || `Punto ${p.lat}, ${p.lon}`;
+      return {
+        contrato: contratoData?.contrato || p.contrato,
+        equipo: contratoData?.equipo || '—',
+        estado: contratoData?.estado || '—',
+        contratista: contratoData?.contratista || '—',
+        nombre_punto: nombrePunto,
+        direccion: p.direccion || '',
+        barrio: p.barrio || '',
+        comuna: p.comuna || '',
+        stages: {
+          antes: getStagePhotos(p.contrato, nombrePunto, 'antes'),
+          durante: getStagePhotos(p.contrato, nombrePunto, 'durante'),
+          despues: getStagePhotos(p.contrato, nombrePunto, 'despues')
+        }
+      };
+    }).sort((a,b) => {
+      const contractDiff = String(a.contrato).localeCompare(String(b.contrato), 'es', {numeric:true});
+      return contractDiff || String(a.nombre_punto).localeCompare(String(b.nombre_punto), 'es');
+    });
+  }
+
+  function renderStageGallery(frente, stage) {
+    const photos = frente.stages[stage] || [];
+    const inputId = `upload-${stage}-${encodeURIComponent(buildFrenteKey(frente.contrato, frente.nombre_punto))}`;
+
+    return `
+      <div class="stageCard">
+        <div class="stageHead">
+          <div>
+            <div class="stageTitle">${STAGE_LABELS[stage]}</div>
+            <div class="stageHint">Carga fotos de esta etapa. La galería muestra primero las imágenes más recientes.</div>
+          </div>
+          <span class="chip">${photos.length} foto${photos.length === 1 ? '' : 's'}</span>
+        </div>
+
+        <label class="uploadLabel" for="${inputId}">+ Cargar fotos</label>
+        <input class="uploadInput" id="${inputId}" type="file" accept="image/*" multiple data-upload-stage="${stage}" data-contrato="${escapeHtml(frente.contrato)}" data-punto="${escapeHtml(frente.nombre_punto)}">
+
+        ${photos.length ? `
+          <div class="galleryList">
+            ${photos.map(photo => `
+              <article class="galleryItem">
+                <img class="galleryImage" src="${photo.dataUrl}" alt="${escapeHtml(photo.name || STAGE_LABELS[stage])}">
+                <div class="galleryInfo">
+                  <div class="galleryDate">Cargada: ${escapeHtml(formatDateTime(photo.uploadedAt))}</div>
+                  <div class="galleryName">${escapeHtml(photo.name || 'Fotografía')}</div>
+                  <div class="galleryActions">
+                    <a class="tinyBtn secondary" href="${photo.dataUrl}" target="_blank" rel="noopener noreferrer">Abrir foto</a>
+                    <button class="tinyBtn danger" type="button" data-delete-photo="true" data-stage="${stage}" data-contrato="${escapeHtml(frente.contrato)}" data-punto="${escapeHtml(frente.nombre_punto)}" data-photo-id="${escapeHtml(photo.id)}">Eliminar</button>
+                  </div>
+                </div>
+              </article>
+            `).join('')}
+          </div>
+        ` : '<div class="galleryEmpty">Todavía no hay fotos cargadas en esta etapa.</div>'}
+      </div>
+    `;
+  }
+
+  function renderFronts(rows) {
+    const list = el('frontsList');
+    if (!list) return;
+
+    const frentes = buildFronts(rows);
+    let totalAntes = 0, totalDurante = 0, totalDespues = 0;
+    frentes.forEach(frente => {
+      totalAntes += frente.stages.antes.length;
+      totalDurante += frente.stages.durante.length;
+      totalDespues += frente.stages.despues.length;
+    });
+
+    el('frontMetricTotal').textContent = frentes.length;
+    el('frontMetricAntes').textContent = totalAntes;
+    el('frontMetricDurante').textContent = totalDurante;
+    el('frontMetricDespues').textContent = totalDespues;
+
+    if (!frentes.length) {
+      list.innerHTML = '<div class="summaryEmpty">No hay puntos geográficos para los filtros actuales, así que no se pueden mostrar frentes de trabajo.</div>';
+      return;
+    }
+
+    list.innerHTML = frentes.map(frente => `
+      <article class="frontCard">
+        <div class="frontCardHead">
+          <div>
+            <div class="frontCardTitle">${escapeHtml(frente.nombre_punto)}</div>
+            <div class="frontCardMeta">
+              <strong>Contrato:</strong> ${escapeHtml(frente.contrato)}<br>
+              <strong>Equipo:</strong> ${escapeHtml(frente.equipo)}<br>
+              <strong>Contratista:</strong> ${escapeHtml(frente.contratista)}
+              ${frente.direccion ? `<br><strong>Dirección:</strong> ${escapeHtml(frente.direccion)}` : ''}
+              ${frente.barrio ? `<br><strong>Barrio:</strong> ${escapeHtml(frente.barrio)}` : ''}
+              ${frente.comuna ? `<br><strong>Comuna:</strong> ${escapeHtml(frente.comuna)}` : ''}
+            </div>
+          </div>
+          <div class="frontCardBadges">
+            <span class="chip">${escapeHtml(frente.estado)}</span>
+            <span class="chip">3 etapas</span>
+          </div>
+        </div>
+        <div class="frontStages">
+          ${renderStageGallery(frente, 'antes')}
+          ${renderStageGallery(frente, 'durante')}
+          ${renderStageGallery(frente, 'despues')}
+        </div>
+      </article>
+    `).join('');
+  }
+
+  async function handleFrontPhotoUpload(input) {
+    const files = [...(input.files || [])];
+    if (!files.length) return;
+
+    const contrato = input.dataset.contrato || '';
+    const punto = input.dataset.punto || '';
+    const stage = input.dataset.uploadStage || '';
+    const bucket = ensureFrontBucket(contrato, punto);
+
+    const readers = files.map(file => new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve({
+        id: `${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+        name: file.name,
+        uploadedAt: Date.now(),
+        dataUrl: reader.result
+      });
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    }));
+
+    try {
+      const uploaded = await Promise.all(readers);
+      bucket[stage] = [...uploaded, ...(bucket[stage] || [])].sort((a,b) => (b.uploadedAt || 0) - (a.uploadedAt || 0));
+      saveFotosFrentes();
+      render();
+      input.value = '';
+    } catch (error) {
+      console.error(error);
+      alert('No fue posible cargar una o más imágenes.');
+    }
+  }
+
+  function deleteFrontPhoto(contrato, punto, stage, photoId) {
+    const key = buildFrenteKey(contrato, punto);
+    const bucket = fotosFrentes[key];
+    if (!bucket || !Array.isArray(bucket[stage])) return;
+    bucket[stage] = bucket[stage].filter(item => item.id !== photoId);
+    saveFotosFrentes();
+    render();
+  }
+
   function resetearTodo(){
     ["filterEquipo","filterAno","filterEstado","filterContratista","filterFinanciacion"].forEach(id=>{
       const sel = el(id);
@@ -2593,6 +3080,22 @@
     });
 
     el("searchBox").addEventListener("input", render);
+
+    document.querySelectorAll('.tabBtn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    el('frontsList').addEventListener('change', (e) => {
+      const input = e.target.closest('input[data-upload-stage]');
+      if (!input) return;
+      handleFrontPhotoUpload(input);
+    });
+
+    el('frontsList').addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-delete-photo="true"]');
+      if (!btn) return;
+      deleteFrontPhoto(btn.dataset.contrato, btn.dataset.punto, btn.dataset.stage, btn.dataset.photoId);
+    });
 
     el("tbody").addEventListener("click", (e)=>{
       const btn = e.target.closest("button[data-contrato]");
