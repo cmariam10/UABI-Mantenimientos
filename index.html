@@ -1618,6 +1618,35 @@
     localStorage.setItem(FOTOS_STORAGE_KEY, JSON.stringify(fotosFrentes));
   }
 
+  function compressImage(file, maxWidth = 1600, quality = 0.78) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const img = new Image();
+        img.onload = () => {
+          try {
+            const ratio = Math.min(1, maxWidth / Math.max(img.width, 1));
+            const width = Math.round(img.width * ratio);
+            const height = Math.round(img.height * ratio);
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+            resolve(dataUrl);
+          } catch (error) {
+            reject(error);
+          }
+        };
+        img.onerror = reject;
+        img.src = reader.result;
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   function buildFrenteKey(contrato, nombrePunto) {
     return `${extractContractNumber(contrato) || String(contrato || "").trim()}__${String(nombrePunto || "sin-punto").trim().toLowerCase()}`;
   }
@@ -3009,31 +3038,39 @@
     const stage = input.dataset.uploadStage || '';
     const bucket = ensureFrontBucket(contrato, punto);
 
-    const readers = files.map(file => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve({
-        id: `${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
-        name: file.name,
-        uploadedAt: Date.now(),
-        dataUrl: reader.result
-      });
-      reader.onerror = reject;
-      reader.readAsDataURL(file);
-    }));
-
     try {
-      const uploaded = await Promise.all(readers);
+      const uploaded = [];
+
+      for (const file of files) {
+        const dataUrl = await compressImage(file);
+        uploaded.push({
+          id: `${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+          name: file.name,
+          uploadedAt: Date.now(),
+          dataUrl
+        });
+      }
+
       bucket[stage] = [...uploaded, ...(bucket[stage] || [])].sort((a,b) => (b.uploadedAt || 0) - (a.uploadedAt || 0));
       saveFotosFrentes();
       render();
       input.value = '';
     } catch (error) {
       console.error(error);
-      alert('No fue posible cargar una o más imágenes.');
+      const isQuotaError = String(error && error.name || '').toLowerCase().includes('quota');
+      alert(isQuotaError
+        ? 'No fue posible guardar más imágenes en este navegador. Se comprimieron las fotos, pero se alcanzó el límite de almacenamiento local.'
+        : 'No fue posible cargar una o más imágenes.');
     }
   }
 
   function deleteFrontPhoto(contrato, punto, stage, photoId) {
+    const clave = prompt('Ingrese la clave para eliminar la foto:');
+    if (clave !== 'ELIMINAR2026') {
+      alert('Clave incorrecta. No se eliminó la foto.');
+      return;
+    }
+
     const key = buildFrenteKey(contrato, punto);
     const bucket = fotosFrentes[key];
     if (!bucket || !Array.isArray(bucket[stage])) return;
